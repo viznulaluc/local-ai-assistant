@@ -1,76 +1,81 @@
 Local AI Knowledge Assistant
 
-A personal project to explore and build a locally hosted AI assistant using open-source Large Language Models (LLMs). The project will gradually expand to include RAG, MCP, AI agents, and fine-tuning.
+A personal project to learn and build a locally hosted AI assistant using open-source LLMs. The project will gradually expand to include RAG, MCP, AI agents and fine-tuning.
 
-Tech Stack
+1. Prerequisites
 
-- Python 3.13
-- Ollama
-- Qwen3 1.7B
-- FastAPI
-- Uvicorn
+- Windows 64-bit
+- Python 3.13.14
+- Ollama 0.40.17
+- VS Code (recommended)
 
-Setup Completed
+Ollama: https://ollama.com/download
 
-1. Install Python
+2. Install and Configure Ollama
 
-- Installed Python 3.13.14.
-- Verified installation:
+Install Ollama and download a lightweight model for local execution.
 
-python --version
+Command Prompt:
 
-2. Install Ollama
+PS> ollama pull qwen3:1.7b
 
-- Installed Ollama for Windows.
-- Download: https://ollama.com/download
-- Verified installation:
+Verify the downloaded model:
 
-ollama --version
+PS> ollama list
 
-3. Download Local LLM
+Run the model:
 
-- Downloaded the Qwen3 1.7B model.
+PS> ollama run qwen3:1.7b
 
-ollama pull qwen3:1.7b
+Check running models:
 
-- Verified downloaded models:
+PS> ollama ps
 
-ollama list
+Current model: Qwen3 1.7B
+Execution: CPU
 
-4. Create Python Virtual Environment
+3. Project Setup
 
-Created the project structure:
+Create the project directory:
+
+PS> mkdir C:\AI\local-ai-assistant
+PS> cd C:\AI\local-ai-assistant
+PS> mkdir backend
+PS> cd backend
+
+Create a Python virtual environment:
+
+PS> python -m venv .venv
+
+Activate it:
+
+PS> .venv\Scripts\activate
+
+4. Install Python Dependencies
+
+Install the initial packages required for the backend:
+
+(.venv) PS> pip install fastapi uvicorn ollama python-dotenv
+
+Verify installed packages:
+
+(.venv) PS> pip list
+
+5. Current Project Structure
 
 local-ai-assistant/
 └── backend/
     └── .venv/
+        ├── Include/
+        ├── Lib/
+        ├── Scripts/
+        ├── .gitignore
+        └── pyvenv.cfg
 
-Created and activated the virtual environment:
+Application files such as "main.py" will be maintained outside ".venv".
 
-python -m venv .venv
-.venv\Scripts\activate
+---
 
-5. Install Python Dependencies
+Progress: Python environment configured, Ollama installed, Qwen3 1.7B downloaded, and initial backend dependencies installed.
 
-Installed the initial backend dependencies:
-
-pip install fastapi uvicorn ollama python-dotenv
-
-Verified installed packages:
-
-pip list
-
-Current Project Structure
-
-local-ai-assistant/
-└── backend/
-    ├── .venv/
-    ├── main.py
-    └── requirements.txt
-
-Next Steps
-
-- Build FastAPI endpoints for local LLM interaction.
-- Connect FastAPI with Ollama.
-- Add conversation history and streaming responses.
-- Gradually introduce RAG, MCP, AI agents, and fine-tuning.
+More implementation steps and features will be documented as the project progresses.
